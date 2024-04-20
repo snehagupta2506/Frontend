@@ -14,7 +14,7 @@ function Todo() {
 
 	// Fetch tasks from database 
 	useEffect(() => { 
-		axios.get('https://sneha-backend-q7aw.onrender.com/getTodoList') 
+		axios.get('http://127.0.0.1:3001/getTodoList') 
 			.then(result => { 
 				setTodoList(result.data) 
 			}) 
@@ -46,7 +46,7 @@ function Todo() {
 			return; 
 		} 
 
-		axios.post('https://sneha-backend-q7aw.onrender.com/addTodoList', { task: newTask, status: newStatus, deadline: newDeadline }) 
+		axios.post('http://127.0.0.1:3001/addTodoList', { task: newTask, status: newStatus, deadline: newDeadline }) 
 			.then(res => { 
 				console.log(res); 
 				window.location.reload(); 
@@ -69,7 +69,7 @@ function Todo() {
 		} 
 
 		// Updating edited data to the database through updateById API 
-		axios.post('https://sneha-backend-q7aw.onrender.com/updateTodoList/' + id, editedData) 
+		axios.post('http://127.0.0.1:3001/updateTodoList/' + id, editedData) 
 			.then(result => { 
 				console.log(result); 
 				setEditableId(null); 
@@ -84,7 +84,7 @@ function Todo() {
 
 	// Delete task from database 
 	const deleteTask = (id) => { 
-		axios.delete('https://sneha-backend-q7aw.onrender.com/deleteTodoList/' + id) 
+		axios.delete('http://127.0.0.1:3001/deleteTodoList/' + id) 
 			.then(result => { 
 				console.log(result); 
 				window.location.reload(); 
